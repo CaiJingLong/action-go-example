@@ -4,12 +4,11 @@ on: pull_request
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-go@v1
-      with:
-        go-version: '1.13' # The Go version to download (if necessary) and use.
-    - run: go run hello-world.go
+      - uses: actions/checkout@v1
+      - uses: actions/setup-go@v1
+        with:
+          go-version: "1.13" # The Go version to download (if necessary) and use.
+      - run: go build hello-world.go
+      - run: ./hello-world
